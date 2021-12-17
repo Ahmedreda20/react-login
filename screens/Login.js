@@ -27,7 +27,7 @@ export default function Login({ navigation }) {
     // console.log(`e-mail address of that user is: ' ${email} ' and it password too is: ' ${password} '`)
     if (email && password) {
       // setVisible(true);
-      navigation.push('Home');
+      navigation.navigate('profile');
     }
   }
 

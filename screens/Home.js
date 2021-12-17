@@ -7,6 +7,7 @@ import SlideCarousel from '../components/SlideCarousel';
 import ProductsWithFilter from '../components/ProductsWithFilter';
 import LatestProducts from '../components/LatestProducts';
 import HomeHeader from '../components/HomeHeader';
+// import TabBarNav from '../components/TabBarNav';
 
 export default function Home({ navigation }) {
   const carousel = useRef();
@@ -66,41 +67,44 @@ export default function Home({ navigation }) {
   };
 
   return (
-    <View
-      style={{
-        backgroundColor: '#F3F4F6',
-        flex: 1,
-        alignItems: 'flex-start',
-        flexDirection: 'column',
-      }}
-    >
-      {/* header start */}
-      <HomeHeader />
-      {/* header end */}
-      {/* carousel start */}
-      <SafeAreaView>
-        <View>
-          <Carousel
-            layout={'default'}
-            ref={carousel}
-            data={state.carouselItems}
-            itemWidth={windowWidth * 0.8}
-            containerWidth={windowWidth}
-            style={{
-              flexGrow: 0,
-              height: 150,
-            }}
-            renderItem={SlideCarousel}
-          />
-        </View>
-      </SafeAreaView>
-      {/* carousel end */}
-      {/* flatList products width filter start */}
-      <ProductsWithFilter products={state.products} />
-      {/* flatList products width filter end */}
-      {/* flatList products latest products start */}
-      <LatestProducts />
-      {/* flatList products latest products end */}
-    </View>
+    <React.Fragment>
+      {/* <TabBarNav /> */}
+      <View
+        style={{
+          backgroundColor: '#F3F4F6',
+          flex: 1,
+          alignItems: 'flex-start',
+          flexDirection: 'column',
+        }}
+      >
+        {/* header start */}
+        <HomeHeader navigation={navigation} />
+        {/* header end */}
+        {/* carousel start */}
+        <SafeAreaView>
+          <View>
+            <Carousel
+              layout={'default'}
+              ref={carousel}
+              data={state.carouselItems}
+              itemWidth={windowWidth * 0.8}
+              containerWidth={windowWidth}
+              style={{
+                flexGrow: 0,
+                height: 150,
+              }}
+              renderItem={SlideCarousel}
+            />
+          </View>
+        </SafeAreaView>
+        {/* carousel end */}
+        {/* flatList products width filter start */}
+        <ProductsWithFilter products={state.products} navigation={navigation} />
+        {/* flatList products width filter end */}
+        {/* flatList products latest products start */}
+        <LatestProducts navigation={navigation} />
+        {/* flatList products latest products end */}
+      </View>
+    </React.Fragment>
   );
 }

@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Product from './Product';
-export default function ProductsWithFilter({ products }) {
+export default function ProductsWithFilter({ products, navigation }) {
   return (
     <Fragment>
       <View
@@ -45,10 +45,11 @@ export default function ProductsWithFilter({ products }) {
         {/* flatList */}
         <FlatList
           data={products}
-          renderItem={Product}
+          renderItem={({ item }) => <Product navigation={navigation} item={item} />}
           keyExtractor={(item) => item.id}
           horizontal={true}
           style={{ flex: 1, padding: 10, paddingBottom: 15 }}
+          showsHorizontalScrollIndicator={false}
         />
         {/* flatList end */}
         <View style={{ width: 80 }}>

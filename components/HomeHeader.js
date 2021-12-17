@@ -2,9 +2,10 @@ import React from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Feather from 'react-native-vector-icons/Feather';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 import Input from './Input';
-export default function HomeHeader() {
+export default function HomeHeader({ navigation }) {
   return (
     <View
       style={{
@@ -23,12 +24,13 @@ export default function HomeHeader() {
         }}
       >
         <TouchableOpacity>
-          <MaterialIcons
-            name={'menu'}
+          <AntDesign
+            name={'user'}
             style={{
               color: '#fff',
               fontSize: 25,
             }}
+            onPress={() => navigation.navigate('profile')}
           />
         </TouchableOpacity>
         <Text

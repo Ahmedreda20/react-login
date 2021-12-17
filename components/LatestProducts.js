@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { View, Text, FlatList } from 'react-native';
 
 import LatestProduct from './LatestProduct';
-export default function LatestProducts() {
+export default function LatestProducts({ navigation }) {
   const products = [
     {
       img: 'https://d12n9cpx6835mo.cloudfront.net/finger_food_50_web_thumb.jpg?v=178.6',
@@ -68,10 +68,11 @@ export default function LatestProducts() {
         {/* flatList */}
         <FlatList
           data={products}
-          renderItem={LatestProduct}
+          renderItem={({ item }) => <LatestProduct navigation={navigation} item={item} />}
           keyExtractor={(item) => item.id}
           horizontal={true}
           style={{ flex: 1, padding: 10, paddingBottom: 15 }}
+          showsHorizontalScrollIndicator={false}
         />
         {/* flatList end */}
       </View>

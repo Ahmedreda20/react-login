@@ -1,27 +1,29 @@
 import React, { useRef } from 'react';
-import { Text, View, Image, TouchableOpacity } from 'react-native';
+import { Text, View, Image, TouchableOpacity, Dimensions } from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-export default function LatestProduct({ item, navigation }) {
+export default function single_product({ item, navigation }) {
+  const { width: windowWidth } = Dimensions.get('window');
+
   function HeartCurrentItem(id) {
     if (item.id === id) {
       item.hearted = !item.hearted;
     }
   }
   return (
-    <TouchableOpacity onPress={() => navigation.navigate('singleProduct')}>
+    <TouchableOpacity onPress={() => navigation.navigate('singleProduct')} style={{ flex: 1 }}>
       <View
-        key={item.id}
         style={{
-          marginHorizontal: 5,
+          margin: 5,
           flexDirection: 'column',
           alignItems: 'flex-start',
           justifyContent: 'start',
-          width: 150,
+          flex: 1,
           position: 'relative',
           backgroundColor: '#fff',
           borderRadius: 10,
           padding: 8,
         }}
+        key={item.id}
       >
         <Image
           source={item.img}
