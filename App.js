@@ -53,9 +53,9 @@ export default function App() {
           })}
           tabBar={(props) => <TabBar {...props} />}
         >
+          <Tab.Screen name="home" component={Home} />
           <Tab.Screen name="login" component={Login} />
           <Tab.Screen name="products" component={Products} />
-          <Tab.Screen name="home" component={Home} />
           <Tab.Screen name="singleProduct" component={SingleProduct} />
           <Tab.Screen
             name="profile"

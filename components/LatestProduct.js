@@ -8,7 +8,12 @@ export default function LatestProduct({ item, navigation }) {
     }
   }
   return (
-    <TouchableOpacity onPress={() => navigation.navigate('singleProduct')}>
+    <TouchableOpacity
+      onPress={() => navigation.navigate('singleProduct')}
+      style={{
+        flex: 1,
+      }}
+    >
       <View
         key={item.id}
         style={{
@@ -16,7 +21,6 @@ export default function LatestProduct({ item, navigation }) {
           flexDirection: 'column',
           alignItems: 'flex-start',
           justifyContent: 'start',
-          width: 150,
           position: 'relative',
           backgroundColor: '#fff',
           borderRadius: 10,

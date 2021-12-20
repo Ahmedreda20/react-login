@@ -70,7 +70,8 @@ export default function LatestProducts({ navigation }) {
           data={products}
           renderItem={({ item }) => <LatestProduct navigation={navigation} item={item} />}
           keyExtractor={(item) => item.id}
-          horizontal={true}
+          vertical={true}
+          numColumns={2}
           style={{ flex: 1, padding: 10, paddingBottom: 15 }}
           showsHorizontalScrollIndicator={false}
         />

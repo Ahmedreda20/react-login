@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { View, SafeAreaView, Dimensions } from 'react-native';
+import { View, SafeAreaView, Dimensions, ScrollView } from 'react-native';
 
 import Carousel from 'react-native-anchor-carousel';
 // import global components
@@ -69,42 +69,50 @@ export default function Home({ navigation }) {
   return (
     <React.Fragment>
       {/* <TabBarNav /> */}
-      <View
+      <SafeAreaView
         style={{
-          backgroundColor: '#F3F4F6',
           flex: 1,
-          alignItems: 'flex-start',
-          flexDirection: 'column',
         }}
       >
-        {/* header start */}
-        <HomeHeader navigation={navigation} />
-        {/* header end */}
-        {/* carousel start */}
-        <SafeAreaView>
-          <View>
-            <Carousel
-              layout={'default'}
-              ref={carousel}
-              data={state.carouselItems}
-              itemWidth={windowWidth * 0.8}
-              containerWidth={windowWidth}
-              style={{
-                flexGrow: 0,
-                height: 150,
-              }}
-              renderItem={SlideCarousel}
-            />
+        <ScrollView showsHorizontalScrollIndicator={false}>
+          <View
+            style={{
+              backgroundColor: '#F3F4F6',
+              // flex: 1,
+              // alignItems: 'flex-start',
+              // flexDirection: 'column',
+            }}
+          >
+            {/* header start */}
+            <HomeHeader navigation={navigation} />
+            {/* header end */}
+            {/* carousel start */}
+            <SafeAreaView>
+              <View>
+                <Carousel
+                  layout={'default'}
+                  ref={carousel}
+                  data={state.carouselItems}
+                  itemWidth={windowWidth * 0.8}
+                  containerWidth={windowWidth}
+                  style={{
+                    flexGrow: 0,
+                    height: 150,
+                  }}
+                  renderItem={SlideCarousel}
+                />
+              </View>
+            </SafeAreaView>
+            {/* carousel end */}
+            {/* flatList products width filter start */}
+            <ProductsWithFilter products={state.products} navigation={navigation} />
+            {/* flatList products width filter end */}
+            {/* flatList products latest products start */}
+            <LatestProducts navigation={navigation} />
+            {/* flatList products latest products end */}
           </View>
-        </SafeAreaView>
-        {/* carousel end */}
-        {/* flatList products width filter start */}
-        <ProductsWithFilter products={state.products} navigation={navigation} />
-        {/* flatList products width filter end */}
-        {/* flatList products latest products start */}
-        <LatestProducts navigation={navigation} />
-        {/* flatList products latest products end */}
-      </View>
+        </ScrollView>
+      </SafeAreaView>
     </React.Fragment>
   );
 }
