@@ -41,7 +41,8 @@ export default function single_product({ item, navigation }) {
             borderRadius: 10,
             flex: 1,
             width: '85%',
-            marginTop: '-25%',
+            marginTop: -60,
+
             left: '50%',
             transform: [{ translateX: '-50%' }],
             shadow: {
