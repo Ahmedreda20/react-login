@@ -13,15 +13,13 @@ export default function single_product({ item, navigation }) {
     <TouchableOpacity onPress={() => navigation.navigate('singleProduct')} style={{ flex: 1 }}>
       <View
         style={{
-          margin: 5,
+          marginBottom: 10,
           flexDirection: 'column',
           alignItems: 'flex-start',
           justifyContent: 'start',
           flex: 1,
           position: 'relative',
-          backgroundColor: '#fff',
           borderRadius: 10,
-          padding: 8,
         }}
         key={item.id}
       >
@@ -29,82 +27,78 @@ export default function single_product({ item, navigation }) {
           source={item.img}
           style={{
             width: '100%',
-            height: 100,
+            height: 250,
             borderRadius: 8,
             marginBottom: 12,
+            resizeMode: 'cover',
           }}
         />
-        <Text
-          style={{
-            fontWeight: 600,
-          }}
-        >
-          {item.title}
-        </Text>
         <View
           style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            marginVertical: 3,
+            backgroundColor: '#fff',
+            paddingHorizontal: 20,
+            paddingVertical: 15,
+            borderRadius: 10,
+            flex: 1,
+            width: '85%',
+            marginTop: '-25%',
+            left: '50%',
+            transform: [{ translateX: '-50%' }],
+            shadow: {
+              shadowColor: '#ddd',
+              shadowRadius: 10,
+              shadowOpacity: 1,
+            },
           }}
         >
-          <Text
+          <View
             style={{
-              fontWeight: 600,
+              flexDirection: 'row',
+              alignItems: 'center',
+              marginVertical: 3,
+              position: 'relative',
+              justifyContent: 'space-between',
+              gap: 5,
             }}
           >
-            350G
-          </Text>
-          <Text
-            style={{
-              fontWeight: 600,
-              color: 'orange',
-              fontSize: 12,
-            }}
-          >
-            <AntDesign
-              name="star"
+            <Text
               style={{
-                fontSize: 12,
-                marginHorizontal: 4,
+                fontWeight: 600,
+                flex: 1,
               }}
-            />
-            4.5
+            >
+              {item.title}
+            </Text>
+            <TouchableOpacity
+              style={{
+                width: 30,
+                height: 30,
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: '#fff',
+                borderRadius: 9999,
+              }}
+              onPress={() => HeartCurrentItem(item.id)}
+            >
+              <AntDesign
+                name={item.hearted ? 'heart' : 'hearto'}
+                style={{
+                  color: 'red',
+                  fontSize: 16,
+                  fontWeight: 700,
+                }}
+              />
+            </TouchableOpacity>
+          </View>
+          <Text
+            style={{
+              fontWeight: 600,
+              fontSize: 14,
+            }}
+          >
+            {item.content}
           </Text>
         </View>
-        <Text
-          style={{
-            color: '#047857',
-            fontWeight: 700,
-            fontSize: 16,
-          }}
-        >
-          $90
-        </Text>
-        <TouchableOpacity
-          style={{
-            width: 30,
-            height: 30,
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: '#fff',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            margin: 10,
-            borderRadius: 9999,
-          }}
-          onPress={() => HeartCurrentItem(item.id)}
-        >
-          <AntDesign
-            name={item.hearted ? 'heart' : 'hearto'}
-            style={{
-              color: 'red',
-              fontSize: 16,
-              fontWeight: 700,
-            }}
-          />
-        </TouchableOpacity>
       </View>
     </TouchableOpacity>
   );
