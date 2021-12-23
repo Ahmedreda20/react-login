@@ -73,7 +73,7 @@ export default function SingleProduct({ navigation }) {
             backgroundColor: '#f97316',
           }}
           activeOpacity={0.5}
-          onPress={() => navigation.navigate('home')}
+          onPress={() => navigation.goBack()}
         >
           <Feather
             name={'chevron-left'}
